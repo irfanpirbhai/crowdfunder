@@ -30,13 +30,15 @@ end
 group :development do
   gem 'better_errors'
   gem 'pry-rails'
+  gem 'thin'
 end
-
 
 group :test do 
   gem "factory_girl_rails"
   gem "capybara"
+  gem "capybara-webkit"
   gem 'rb-fsevent', :require => false
+  gem "database_cleaner"
 end
 
 # To use ActiveModel has_secure_password
