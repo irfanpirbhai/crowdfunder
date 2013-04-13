@@ -3,13 +3,14 @@ class ProjectsController < ApplicationController
     @projects = Project.all
   end
 
+  def show
+    @project = Project.find(params[:id])
+  end
+
   def new
   end
 
   def create
-  end
-
-  def show
   end
 
   def destroy

@@ -19,7 +19,7 @@ class ProjectFlowsTest < ActionDispatch::IntegrationTest
     assert page.has_content?('Project 3')
   end
 
-  test 'navigation' do
+  test 'Navigation' do
     FactoryGirl.create(:project, :title => "Project 1")
 
     # visit root path
@@ -45,7 +45,14 @@ class ProjectFlowsTest < ActionDispatch::IntegrationTest
 
     # The Projects tab is still highlighted in nav
     assert_equal "Projects", find("div.navbar-inner ul.nav li.active a").text
-
+  end
+  
+  test 'Project show page' do
+    FactoryGirl.create(:project, :title => "Project 1")
+    visit('/projects')
+    page.click_on("Project 1")
+    assert page.has_content?("Project 1")
+    assert page.has_content?("10000")
   end
 
 end
