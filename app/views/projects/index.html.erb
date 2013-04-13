@@ -1,11 +1,13 @@
 <h1>Project Listings</h1>
 
 <ul><% @projects.each do |project| %>
-  <li><%= link_to project.title, project %><br>
+  <p>
+    <li><%= link_to project.title, project %><br>
       by <%= project.user.first_name %> <%= project.user.last_name %><br>
       <%= project.teaser %><br>
       <%= project.goal %><br>
       <%= project.description %><br>
-  </li>
+    </li>
+  </p>
   <% end %>
 </ul>

@@ -9,13 +9,14 @@
 User.destroy_all
 Project.destroy_all
 
-user = User.create!(first_name: "Irfan", last_name: "Pirbhai", email: "fanjaan@gmail.com", password: "1234")
+user = User.create!(first_name: "Irfan", 
+                    last_name: "Pirbhai", 
+                    email: "fanjaan@gmail.com", 
+                    password: "1234")
 
-project1 = user.projects.create!(title: "Project 1", teaser: "Teaser text 1",
-  description: "description 1", goal: 13000)
-
-project2 = user.projects.create!(title: "Project 2", teaser: "Teaser text 2",
-  description: "description 2", goal: 210000)
-
-project3 = user.projects.create!(title: "Project 3", teaser: "Teaser text 3",
-  description: "description 3", goal: 30000)
+(1..50).each do |n|
+  user.projects.create!(title: "Project #{n}", 
+                        teaser: "Teaser text #{n}", 
+                        description: "description #{n}", 
+                        goal: 13000)
+end
