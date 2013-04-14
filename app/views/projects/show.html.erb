@@ -4,3 +4,5 @@
 <p>Goal: $<%= @project.goal %><br>
   Description: <%= @project.description %><br>
 </p>
+
+<%= link_to "Back This Project", new_project_pledge_path(@project), :class => "btn btn-large btn-success" %>

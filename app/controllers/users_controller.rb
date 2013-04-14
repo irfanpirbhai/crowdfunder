@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       auto_login(@user)
-      flash[:success] = "Signed up!"
+      flash[:success] = "Success! You're all signed up!"
       redirect_to :root
     else
       render :new
