@@ -1,33 +1,4 @@
-<h1>Registration</h1>
+<h1>New to Crowdfunder?</h1>
+<p>A Crowdfunder account is required to continue.</p>
 
-<%= form_for @user do |f|%>
-
-  <% if @user.errors.any? %>
-    <div class="text-error">
-      <h3>Form is invalid</h3>
-      <ul>
-        <% @user.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <%= f.label :first_name %>
-  <%= f.text_field :first_name %><br>
-
-  <%= f.label :last_name %>
-  <%= f.text_field :last_name %><br>
-
-  <%= f.label :email %>
-  <%= f.email_field :email %><br>
-
-  <%= f.label :password %>
-  <%= f.password_field :password %><br>
-
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %><br>
-
-
-  <%= f.submit %>
-<% end %>
+<%= render :partial => 'form' %>

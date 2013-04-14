@@ -1,9 +1,13 @@
 Crowdfunder::Application.routes.draw do
   
-  get '/signup' => "users#new", as: 'signup'
-  resources :users, :only => [:create]
+  match 'signup' => 'users#new', :via => :get
+  match 'login' => "sessions#new", :as => 'login'
+  match 'logout' => "sessions#destroy", :as => 'logout'
   
+  resources :users, :only => [:create]
+  resources :sessions, :only => [:create]
   resources :projects
+
   root :to => 'welcome#index'
   
   # The priority is based upon order of creation:

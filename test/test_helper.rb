@@ -17,4 +17,33 @@ class ActionDispatch::IntegrationTest
   include Capybara::DSL
 
   Capybara.app = Crowdfunder::Application
+  
+  teardown do
+    Capybara.reset_sessions!    # Forget the (simulated) browser state
+    Capybara.use_default_driver # Revert Capybara.current_driver to Capybara.default_driver
+  end
+end
+
+
+
+def user_signup
+  visit "/"
+  find("div.navbar").click_link('Sign up')
+  
+  user = FactoryGirl.build(:user) 
+  fill_in('First name', :with => user.first_name)
+  fill_in('Last name', :with => user.last_name)
+  fill_in('Email', :with => user.email)
+  fill_in('Password', :with => user.password)
+  fill_in('Password confirmation', :with => user.password)
+  find('form').click_button('Sign up')
+end
+
+def user_login
+  password = "1234"
+  user = FactoryGirl.create(:user, :password => password)
+  visit "/login"
+  fill_in('email', :with => user.email)
+  fill_in('password', :with => password)
+  find('form').click_button('Log in')
 end

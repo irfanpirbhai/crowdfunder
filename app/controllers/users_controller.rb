@@ -6,10 +6,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
+      auto_login(@user)
       flash[:success] = "Signed up!"
       redirect_to :root
     else
-      flash.now[:error] = "Please try again"
       render :new
     end
   end
