@@ -23,7 +23,6 @@ class PledgeTest < ActiveSupport::TestCase
     assert_equal "can't be blank", pledge.errors[:amount].first
   end
 
-
   test "Pledge requires positive number" do
     pledge = FactoryGirl.build(:pledge, :amount => -4)
     assert_false pledge.save
