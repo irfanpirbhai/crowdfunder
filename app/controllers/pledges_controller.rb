@@ -10,7 +10,7 @@ class PledgesController < ApplicationController
     @pledge = @project.pledges.build(params[:pledge])
     @pledge.user = current_user
     
-    if @pledge.save!
+    if @pledge.save
       flash[:success] = "Thanks for your support!"
       redirect_to @project
 
