@@ -1,4 +1,4 @@
-<h1>Projects Listing</h1>
+<h1>Projects</h1>
 
 <ul><% @projects.each do |project| %>
   <p>
@@ -11,3 +11,5 @@
   </p>
   <% end %>
 </ul>
+
+<%= paginate @projects %>

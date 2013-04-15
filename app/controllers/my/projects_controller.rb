@@ -5,7 +5,7 @@ class My::ProjectsController < ApplicationController
 
   def index
     @user = current_user
-    @projects = @user.projects.order('projects.created_at DESC').all
+    @projects = @user.projects.order('projects.created_at DESC').page(params[:page]).per(8)
   end
 
   def new
