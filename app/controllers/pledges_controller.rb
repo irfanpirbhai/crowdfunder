@@ -11,6 +11,7 @@ class PledgesController < ApplicationController
     @pledge.user = current_user
     
     if @pledge.save
+      UserMailer.new_pledge(@pledge).deliver
       flash[:success] = "Thanks for your support!"
       redirect_to @project
 

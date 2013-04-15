@@ -1,0 +1,9 @@
+Dear <%= @owner.first_name %>,
+
+Great news! Your project, <%= @project.title %>, has been backed by <%= @backer.first_name %> <%= @backer.last_name %> with an amount of $<%= @pledge.amount %>.
+
+That means you've now raised $<%= @project.current_goal %> of your total $<%= @project.goal %> goal.
+
+Best of luck!
+
+- The CrowdFunder team
