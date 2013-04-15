@@ -11,7 +11,7 @@ class ProjectFlowsTest < ActionDispatch::IntegrationTest
     assert_equal projects_path, current_path
 
     # expect the header
-    assert page.has_content?("Project Listings")
+    assert page.has_content?("Projects Listing")
 
     # expect the projects to list
     assert page.has_content?('Project 1')

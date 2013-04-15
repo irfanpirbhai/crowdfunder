@@ -1,8 +1,10 @@
 <h1><%= @project.title %></h1>
 <h4>by <%= @project.user.first_name %> <%= @project.user.last_name %></h4>
 
-<p>Goal: $<%= @project.goal %><br>
-  Description: <%= @project.description %><br>
+<p>  Currently raised: $<%= @project.current_goal %><br>
+  Goal: $<%= @project.goal %><br>
+  <p>Description: <%= @project.description %></p>
+
 </p>
 
 <%= link_to "Back This Project", new_project_pledge_path(@project), :class => "btn btn-large btn-success" %>

@@ -4,6 +4,9 @@
     <ul class="nav">
       <li class="<%= "active" if current_page?(root_path) %>"><%= link_to 'Home', root_path %></li>
       <li class="<%= "active" if params[:controller] == 'projects' %>"><%= link_to 'Projects', projects_path %></li>
+      <% if logged_in? %>
+        <li class="<%= "active" if params[:controller] == 'my/projects' %>"><%= link_to "My Projects", my_projects_path %></li>
+      <% end %>
     </ul>
     <div class="nav pull-right">
       <% unless logged_in? %>
@@ -11,7 +14,7 @@
         <%= link_to "Sign up", signup_path, :class => "btn btn-primary" %>
       <% else %>
         <span class="muted"><small>Logged in as <%= current_user.email %></small></span>
-        <%= link_to "Log out", logout_path, :class => "btn btn-danger" %>
+        <%= link_to "Log out", logout_path, :class => "btn btn-inverse" %>
       <% end %>
     </div>
   </div>

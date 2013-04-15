@@ -1,13 +1,15 @@
-<h1>Projects Listing</h1>
+<h1>My Projects Listing</h1>
+
+<%= link_to "Make A New Project", new_my_project_path, :class => "btn btn-primary" %>
 
 <ul><% @projects.each do |project| %>
   <p>
-    <li><%= link_to project.title, project %>
-      by <%= project.user.first_name %> <%= project.user.last_name %><br>
+    <li><%= project.title %><br>
       <%= project.teaser %><br>
       Currently Raised: $<%= project.current_goal %>/$<%= project.goal %><br>
       Description: <%= project.description %><br>
     </li>
+    <%= link_to "Edit", edit_my_project_path(project), :class => "btn btn-link" %>
   </p>
   <% end %>
 </ul>

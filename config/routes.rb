@@ -1,5 +1,10 @@
 Crowdfunder::Application.routes.draw do
   
+
+  namespace :my do
+    resources :projects, :except => [:show]
+  end
+  
   match 'signup' => 'users#new', :as => 'signup'
   match 'login' => "sessions#new", :as => 'login'
   match 'logout' => "sessions#destroy", :as => 'logout'

@@ -8,10 +8,16 @@
 
 User.destroy_all
 Project.destroy_all
+Pledge.destroy_all
 
 user = User.create!(first_name: "Irfan", 
                     last_name: "Pirbhai", 
                     email: "fanjaan@gmail.com", 
+                    password: "1234")
+
+user2 = User.create!(first_name: "Kiran", 
+                    last_name: "Shahbaz", 
+                    email: "kshahbaz84@gmail.com", 
                     password: "1234")
 
 (1..50).each do |n|
@@ -19,4 +25,11 @@ user = User.create!(first_name: "Irfan",
                         teaser: "Teaser text #{n}", 
                         description: "description #{n}", 
                         goal: 13000)
+end
+
+(1..5).each do |n|
+  user2.projects.create!(title: "#{user2.first_name}'s project #{n}", 
+                        teaser: "Teaser text #{n}", 
+                        description: "description #{n}", 
+                        goal: 6000)
 end
